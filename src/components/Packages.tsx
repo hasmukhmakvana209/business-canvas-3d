@@ -47,7 +47,7 @@ export function Packages() {
           {packages.map((p) => (
             <div
               key={p.name}
-              className={`group relative rounded-3xl p-px overflow-hidden bg-gradient-to-b ${p.accent} ${
+              className={`group relative rounded-3xl p-px bg-gradient-to-b ${p.accent} ${
                 p.featured ? "lg:-translate-y-4" : ""
               } transition-transform duration-500 ease-luxe hover:-translate-y-3`}
             >
