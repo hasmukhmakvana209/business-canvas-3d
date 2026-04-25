@@ -1,0 +1,205 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --font-display: "Fraunces", "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Deep luxury palette */
+  --background: oklch(0.16 0.012 95);
+  --foreground: oklch(0.96 0.01 90);
+  --card: oklch(0.2 0.014 95);
+  --card-foreground: oklch(0.96 0.01 90);
+  --popover: oklch(0.2 0.014 95);
+  --popover-foreground: oklch(0.96 0.01 90);
+
+  /* Emerald primary */
+  --primary: oklch(0.52 0.13 155);
+  --primary-foreground: oklch(0.98 0.01 90);
+
+  /* Gold secondary */
+  --gold: oklch(0.78 0.14 80);
+  --gold-foreground: oklch(0.16 0.012 95);
+
+  --secondary: oklch(0.26 0.018 95);
+  --secondary-foreground: oklch(0.96 0.01 90);
+  --muted: oklch(0.24 0.014 95);
+  --muted-foreground: oklch(0.7 0.02 90);
+  --accent: oklch(0.78 0.14 80);
+  --accent-foreground: oklch(0.16 0.012 95);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  --border: oklch(0.3 0.018 90 / 60%);
+  --input: oklch(0.3 0.018 90 / 60%);
+  --ring: oklch(0.78 0.14 80);
+
+  /* Gradients */
+  --gradient-hero: radial-gradient(
+      ellipse at top right,
+      oklch(0.42 0.13 155 / 0.35),
+      transparent 60%
+    ),
+    radial-gradient(ellipse at bottom left, oklch(0.78 0.14 80 / 0.18), transparent 55%),
+    linear-gradient(180deg, oklch(0.16 0.012 95), oklch(0.13 0.012 95));
+  --gradient-gold: linear-gradient(135deg, oklch(0.86 0.13 85), oklch(0.7 0.15 75));
+  --gradient-emerald: linear-gradient(135deg, oklch(0.55 0.14 155), oklch(0.38 0.11 165));
+  --gradient-card: linear-gradient(
+    160deg,
+    oklch(0.24 0.014 95 / 0.9),
+    oklch(0.18 0.014 95 / 0.8)
+  );
+  --gradient-text-gold: linear-gradient(135deg, oklch(0.92 0.1 85), oklch(0.72 0.15 75));
+
+  /* Shadows for 3D depth */
+  --shadow-3d: 0 30px 60px -20px oklch(0 0 0 / 0.6), 0 18px 36px -18px oklch(0 0 0 / 0.55);
+  --shadow-glow-gold: 0 0 60px oklch(0.78 0.14 80 / 0.35),
+    0 20px 40px -20px oklch(0.78 0.14 80 / 0.4);
+  --shadow-glow-emerald: 0 0 80px oklch(0.5 0.13 155 / 0.4),
+    0 25px 50px -25px oklch(0.5 0.13 155 / 0.5);
+  --shadow-card: 0 20px 50px -25px oklch(0 0 0 / 0.7),
+    inset 0 1px 0 oklch(1 0 0 / 0.06);
+  --shadow-float: 0 50px 100px -30px oklch(0 0 0 / 0.7);
+
+  /* Motion */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-gold-gradient {
+    background: var(--gradient-gold);
+  }
+  .bg-emerald-gradient {
+    background: var(--gradient-emerald);
+  }
+  .bg-card-gradient {
+    background: var(--gradient-card);
+  }
+  .text-gold-gradient {
+    background: var(--gradient-text-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-3d {
+    box-shadow: var(--shadow-3d);
+  }
+  .shadow-glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+  .shadow-glow-emerald {
+    box-shadow: var(--shadow-glow-emerald);
+  }
+  .shadow-card-luxe {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+  .glass {
+    background: oklch(1 0 0 / 0.04);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid oklch(1 0 0 / 0.08);
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .ease-luxe {
+    transition-timing-function: var(--ease-luxe);
+  }
+
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0) rotateZ(0); }
+    50% { transform: translateY(-18px) rotateZ(0.5deg); }
+  }
+  @keyframes float-y-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-float { animation: float-y 7s ease-in-out infinite; }
+  .animate-float-slow { animation: float-y-slow 9s ease-in-out infinite; }
+  .animate-fade-up { animation: fade-up 0.9s var(--ease-luxe) both; }
+  .animate-spin-slow { animation: spin-slow 30s linear infinite; }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+}
