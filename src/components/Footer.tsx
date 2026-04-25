@@ -73,7 +73,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground text-center md:text-left">
-            © {new Date().getFullYear()} Shiv Furniture. All rights reserved. · Women-Owned Business
+            © {new Date().getFullYear()} Shiv Furniture. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-muted-foreground">
             <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
