@@ -16,8 +16,7 @@ export function Hero() {
         {/* Left: copy */}
         <div className="animate-fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs uppercase tracking-[0.25em] text-muted-foreground mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-            Women-Owned · 5.0 ★ Rated
+            5.0 ★ Rated
           </div>
 
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
