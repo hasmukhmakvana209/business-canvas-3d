@@ -46,26 +46,14 @@ export function About() {
             About Shiv Furniture
           </div>
           <h2 className="font-display text-4xl md:text-5xl leading-[1.08]">
-            A women-led atelier crafting <span className="text-gold-gradient italic">modern Indian homes.</span>
+            Crafting <span className="text-gold-gradient italic">modern Indian homes.</span>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
             From our workshop in Gota, Ahmedabad, we design, build, and deliver complete furniture
             packages that turn empty apartments into elegant homes — in days, not months.
           </p>
 
-          <div className="mt-8 flex items-center gap-4 p-4 rounded-2xl glass">
-            <div className="w-12 h-12 rounded-full bg-gold-gradient grid place-items-center shadow-glow-gold shrink-0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-gold-foreground">
-                <path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4zm-7 18a7 7 0 0 1 14 0v2H5z" />
-              </svg>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Identifies as
-              </div>
-              <div className="font-display text-lg">Women-Owned Business</div>
-            </div>
-          </div>
+
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4">
