@@ -56,12 +56,12 @@ export function About() {
 
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-8 md:gap-10">
           {features.map((f, i) => (
             <div
               key={f.title}
               className="group relative rounded-2xl bg-card-gradient border border-white/10 p-6 shadow-card-luxe hover:-translate-y-1 transition-transform duration-500 ease-luxe"
-              style={{ transform: i % 2 ? "translateY(20px)" : "translateY(0)" }}
+              style={{ transform: i % 2 ? "translate(0, 0)" : "translate(0, 0)", marginTop: i % 2 === 0 ? "0" : "20px" }}
             >
               <div className="w-11 h-11 rounded-xl bg-gold-gradient text-gold-foreground grid place-items-center shadow-glow-gold mb-5">
                 {f.icon}
