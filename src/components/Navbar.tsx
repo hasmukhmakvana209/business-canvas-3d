@@ -10,6 +10,8 @@ const links = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
@@ -45,6 +47,7 @@ export function Navbar() {
           </div>
         </a>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <a
@@ -57,16 +60,59 @@ export function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="tel:+918000615837"
-          className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold-gradient text-gold-foreground text-sm font-medium shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-transform ease-luxe"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z" />
-          </svg>
-          Call Now
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="tel:+918000615837"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold-gradient text-gold-foreground text-sm font-medium shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-transform ease-luxe"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z" />
+            </svg>
+            Call Now
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden w-10 h-10 rounded-full glass grid place-items-center text-foreground active:scale-95 transition-transform"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 top-[70px] z-40 bg-background/95 backdrop-blur-xl animate-fade-in md:hidden">
+          <nav className="flex flex-col items-center justify-center h-full gap-8">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-display text-3xl tracking-tight hover:text-gold transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="tel:+918000615837"
+              className="mt-4 flex items-center gap-3 px-8 py-4 rounded-full bg-gold-gradient text-gold-foreground font-medium shadow-glow-gold"
+            >
+              Call Us: +91 80006 15837
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
